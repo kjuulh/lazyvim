@@ -7,7 +7,7 @@ return {
     return {
       sources = {
         nls.builtins.formatting.terraform_fmt,
-        nls.builtins.formatting.rustfmt,
+        --nls.builtins.formatting.rustfmt,
         nls.builtins.formatting.yamlfmt,
         nls.builtins.formatting.deno_fmt.with({
           filetypes = { "markdown" }
