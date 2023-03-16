@@ -11,9 +11,8 @@ return {
           -- Code action groups
           vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
         end,
-
         settings = {
-          ["rust-analyzer"] = {
+              ["rust-analyzer"] = {
             imports = {
               granularity = {
                 group = "module",
@@ -21,14 +20,18 @@ return {
               prefix = "self",
             },
             cargo = {
+              allFeatures = true,
               buildScripts = {
                 enable = true,
               },
+              procMacro = {
+                enable = true,
+              }
             },
-            procMacro = {
-              enable = true,
-            },
-            --checkOnSave = false,
+            checkOnSave = {
+              allFeatures = true,
+              enable = true
+            }
           },
         },
       },

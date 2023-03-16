@@ -4,7 +4,8 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "macchiato"
+      --flavour = "espresso"
+      --flavour = "macchiato"
     })
   end
 }
