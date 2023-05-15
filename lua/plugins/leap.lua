@@ -1,4 +1,6 @@
 return {
   "ggandor/leap.nvim",
-  enabled = false,
+  keys = function() return {} end,
+  config = function()
+  end
 }
