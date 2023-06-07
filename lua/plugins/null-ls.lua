@@ -1,3 +1,26 @@
+local h = require("null-ls.helpers")
+local methods = require("null-ls.methods")
+local u = require("null-ls.utils")
+
+local FORMATTING = methods.internal.FORMATTING
+
+local leptosfmt = h.make_builtin({
+  name = "leptosfmt",
+  meta = {
+    url = "https://github.com/bram209/leptosfmt",
+    description = "A formatter for the leptos view! macro"
+  },
+  method = FORMATTING,
+  filetypes = { "rust" },
+  generator_opts = {
+    command = "leptosfmt",
+    args = { "--quiet=true", "--stdin=true" },
+    to_stdin = true,
+  },
+  factory = h.formatter_factory,
+})
+
+
 return {
   "jose-elias-alvarez/null-ls.nvim",
   event = "BufReadPre",
@@ -7,7 +30,6 @@ return {
     return {
       sources = {
         nls.builtins.formatting.terraform_fmt,
-        --nls.builtins.formatting.rustfmt,
         --nls.builtins.formatting.yamlfmt,
         nls.builtins.formatting.deno_fmt.with({
           filetypes = { "markdown" }
@@ -17,8 +39,20 @@ return {
         nls.builtins.formatting.goimports,
         nls.builtins.formatting.gofumpt,
         nls.builtins.formatting.taplo,
+        nls.builtins.formatting.prettierd.with({
+          filetypes = { "graphql" }
+        }),
         nls.builtins.code_actions.gitsigns,
         nls.builtins.code_actions.refactoring,
+        nls.builtins.formatting.rustfmt.with({
+          extra_args = { "--edition=2021" },
+          filetypes = { "rust" }
+        }),
+        leptosfmt.with({
+          condition = function(utils)
+            return utils.root_has_file({ "leptosfmt.toml" })
+          end,
+        }),
       },
     }
   end,
