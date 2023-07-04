@@ -12,7 +12,7 @@ return {
           vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
         end,
         settings = {
-              ["rust-analyzer"] = {
+          ["rust-analyzer"] = {
             imports = {
               granularity = {
                 group = "module",

@@ -14,7 +14,7 @@ local leptosfmt = h.make_builtin({
   filetypes = { "rust" },
   generator_opts = {
     command = "leptosfmt",
-    args = { "--quiet=true", "--stdin=true" },
+    args = { "--quiet", "--stdin" },
     to_stdin = true,
   },
   factory = h.formatter_factory,
@@ -53,6 +53,9 @@ return {
             return utils.root_has_file({ "leptosfmt.toml" })
           end,
         }),
+        nls.builtins.diagnostics.revive,
+        nls.builtins.code_actions.impl,
+        nls.builtins.code_actions.refactoring,
       },
     }
   end,
