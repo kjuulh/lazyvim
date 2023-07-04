@@ -27,3 +27,7 @@
 [
  (status_code_pattern)
 ] @constant
+
+(comment) @comment
+
+(assert_literal) @constant.buildin
