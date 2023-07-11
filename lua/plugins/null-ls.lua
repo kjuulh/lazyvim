@@ -42,6 +42,7 @@ return {
         nls.builtins.formatting.prettierd.with({
           filetypes = { "graphql" }
         }),
+        nls.builtins.formatting.shfmt,
         nls.builtins.code_actions.gitsigns,
         nls.builtins.code_actions.refactoring,
         nls.builtins.formatting.rustfmt.with({

@@ -17,6 +17,13 @@ return {
     }
 
 
+    vim.treesitter.language.register('xml', 'html')
+    vim.filetype.add({
+      extension = {
+        xml = "html"
+      }
+    })
+
     -- https://neovim.io/doc/user/lua.html#vim.filetype.add()
     -- Search for vim.filetype.add
     vim.filetype.add({
